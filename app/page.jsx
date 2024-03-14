@@ -9,11 +9,11 @@ const Home = () => {
 				id="homeLanding"
 			>
 				<Image
-					className="absolute right-0 top-0 bottom-0 w-3/4"
-					src={require("@public/assets/images/bg-1.jpg")}
+					className="absolute top-0 bottom-0 right-0 w-3/4"
+					src="/assets/images/bg-1.jpg"
                     alt="img"
-                    width="full"
-                    height="full"
+                    width="2000"
+                    height="1000"
 				/>
 				<h1 className="m-0 text-7xl drop-shadow-lg">Social Media</h1>
 				<h2 className="m-0 text-5xl drop-shadow-lg">
@@ -21,17 +21,17 @@ const Home = () => {
 				</h2>
 			</div>
 			<div
-				className="relative bg-gray-400  "
+				className="relative bg-gray-400 "
 				id="adLanding"
 			>
 				<Image
-					className="absolute h-full left-0 top-0 bottom-0 w-2/4"
-					src={require("@public/assets/images/bg-ads1.jpg")}
+					className="absolute top-0 bottom-0 left-0 w-2/4 h-full"
+					src="/assets/images/bg-ads1.jpg"
                     alt="img"
-                    width="full"
-                    height="full"
+                    width="2000"
+                    height="1000"
 				/>
-                <div className="flex ml-auto w-1/2 flex-col items-end justify-center gap-36 py-28 mainCont">
+                <div className="flex flex-col items-end justify-center w-1/2 ml-auto gap-36 py-28 mainCont">
                     <p className="text-3xl text-right drop-shadow-lg">
                         We got bored of constantly seeing ads and sponsored posts
                         all over our Social Feed.
@@ -51,17 +51,17 @@ const Home = () => {
 				id="logoLanding"
 			>
 				<Image
-					className="absolute right-0 top-0 bottom-0 w-3/4"
-					src={require("@public/assets/images/bg-logo.jpg")}
+					className="absolute top-0 bottom-0 right-0 w-3/4"
+					src="/assets/images/bg-logo.jpg"
                     alt="img"
-                    width="full"
-                    height="full"
+                    width="2000"
+                    height="1000"
 				/>
 				<p className="flex flex-col w-1/2 text-3xl text-left">
 					<span className="text-5xl">Social media</span> the right
 					way...
 				</p>
-				<Link href="#" className="btn no-underline">
+				<Link href="#" className="no-underline btn">
 					Sign up now
 				</Link>
 			</div>

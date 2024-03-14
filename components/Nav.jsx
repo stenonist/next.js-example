@@ -22,10 +22,10 @@ const Nav = () => {
 
 
 	return (
-		<nav className="flex flex-row py-2 px-4 bg-gray-50 justify-between w-full">
-			<Link href="/" className="flex gap-2 items-center">
+		<nav className="flex flex-row justify-between w-full px-4 py-2 bg-gray-50">
+			<Link href="/" className="flex items-center gap-2">
 				<Image
-					src={require('@public/assets/logo.svg')}
+					src="/assets/logo.svg"
 					alt="logo"
 					width={160}
 					height={42}
@@ -35,7 +35,7 @@ const Nav = () => {
 			
 
 			{/* Desktop */}
-			<div className="sm:flex hidden">
+			<div className="hidden sm:flex">
 				{session?.user ? (
 					<div className="flex items-center gap-3 md:gap-5">
 						<Link href="/posts" className="btn">
@@ -81,7 +81,7 @@ const Nav = () => {
 			</div>
 
 			{/* Mobile */}
-			<div className="sm:hidden relative flex">
+			<div className="relative flex sm:hidden">
 				{session?.user ? (
 					<div className="flex">
 						<Image
