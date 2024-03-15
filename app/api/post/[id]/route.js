@@ -16,7 +16,7 @@ export const GET = async (request, { params }) => {
 }
 
 export const PATCH = async (request, { params }) => {
-    const { post, description } = await request.json();
+    const { title, description } = await request.json();
 
     try {
         await connectToDB();
@@ -29,7 +29,7 @@ export const PATCH = async (request, { params }) => {
         }
 
         // Update the post with new data
-        existingPost.post = post;
+        existingPost.title = title;
         existingPost.description = description;
 
         await existingPost.save();
