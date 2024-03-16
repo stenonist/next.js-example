@@ -14,13 +14,30 @@ const ItemCard = ({ post, handleEdit, handleDelete }) => {
 	const [following, setFollowing] = useState(false);
 
 	useEffect(() => {
-		if (session?.user.following.includes(post.creator._id)) {
-			setFollowing(true);
+		const checkFollowing = async ()=>{
+			const response = await fetch(`/api/follow/`, {
+				method: "POST",
+				body: JSON.stringify({
+					userId: session?.user.id,
+					followId: post.creator._id
+				}),
+			});
+
+			if (response.status == 200) {
+				setFollowing(true);
+			}else{
+				setFollowing(false);
+
+			}
 		}
-	  
+		checkFollowing();
 	}, [])
 	
 
+	// Isolate in a separate route to check if following
+	// if (session?.user.following.includes(post.creator._id)) {
+	// 	setFollowing(true);
+	// }
 
 	const handleProfileClick = () => {
 		if (post.creator._id === session?.user.id)

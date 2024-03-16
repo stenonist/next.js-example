@@ -1,6 +1,25 @@
 import User from "@models/user";
 import { connectToDB } from "@utils/database";
 
+export const POST = async (request,) => {
+    const { userId, followId } = await request.json();
+    
+    try {
+        await connectToDB()
+
+        const followerNew = await User.findOne({'_id':followId})
+
+        let followers = followerNew.followers;
+        if (followers.includes(userId)) {
+            return new Response("Following", { status: 200 });
+        }else{
+            return new Response("Not Following", { status: 400 });
+        }
+    } catch (error) {
+        return new Response("Internal Server Error", { status: 500 });
+    }
+}
+
 export const PATCH = async (request) => {
     const { userId, followId } = await request.json();
 
