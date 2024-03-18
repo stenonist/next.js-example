@@ -15,7 +15,6 @@ const PostSchema = new Schema({
     },
     photo:{
         type: String,
-        required: [true, "Photo is Required"]
     },
 })
 

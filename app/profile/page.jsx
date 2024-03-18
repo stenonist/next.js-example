@@ -37,13 +37,13 @@ const MyProfile = () => {
 	  
 		  if (hasConfirmed) {
 			try {
-			  await fetch(`/api/post/${post._id.toString()}`, {
+			  await fetch(`/api/post/${post._id}`, {
 				method: "DELETE",
 			  });
 	  
 			  const filteredPosts = posts.filter((item) => item._id !== post._id);
 	  
-			  setMyPosts(filteredPosts);
+			  setPosts(filteredPosts);
 			} catch (error) {
 			  console.log(error);
 			}

@@ -5,7 +5,7 @@ export const GET = async (request, { params }) => {
     try {
         await connectToDB()
 
-        const post = await Post.findById(params.id).populate("creator")
+        const post = await Post.findById(params._id).populate("creator")
         if (!post) return new Response("Post Not Found", { status: 404 });
 
         return new Response(JSON.stringify(post), { status: 200 })
@@ -22,7 +22,7 @@ export const PATCH = async (request, { params }) => {
         await connectToDB();
 
         // Find the existing post by ID
-        const existingPost = await Post.findById(params.id);
+        const existingPost = await Post.findById(params._id);
 
         if (!existingPost) {
             return new Response("Post not found", { status: 404 });
@@ -36,6 +36,7 @@ export const PATCH = async (request, { params }) => {
 
         return new Response("Successfully updated the Posts", { status: 200 });
     } catch (error) {
+        console.log(error);
         return new Response("Error Updating Post", { status: 500 });
     }
 };
@@ -45,10 +46,11 @@ export const DELETE = async (request, { params }) => {
         await connectToDB();
 
         // Find the post by ID and remove it
-        await Post.findByIdAndRemove(params.id);
+        await Post.findByIdAndDelete(params._id);
 
         return new Response("Post deleted successfully", { status: 200 });
     } catch (error) {
+        console.log(error);
         return new Response("Error deleting post", { status: 500 });
     }
 };
