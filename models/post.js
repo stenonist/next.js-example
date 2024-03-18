@@ -13,6 +13,10 @@ const PostSchema = new Schema({
         type: String,
         required: [true, "Description is Required"]
     },
+    photo:{
+        type: String,
+        required: [true, "Photo is Required"]
+    },
 })
 
 const Post = models.Post || model('Post', PostSchema);

@@ -1,18 +1,18 @@
 import Link from "next/link";
 
-const Form = ({type, post, setPost, submitting, handleSubmit}) => {
+const Form = ({ type, post, setPost, photo, setPhoto, submitting, handleSubmit}) => {
 	return (
-		<section className="w-full flex-col">
+		<section className="flex-col w-full">
 			<h1>
 				<span className="text-primary">{type}</span> Post
 			</h1>
 			<p>{type} a post and share it</p>
 			<form
 				onSubmit={handleSubmit}
-				className="mt-10 w-full flex sm:w-2/3 mx-auto lg:w-1/2 xl:w-1/4 flex-col gap-4"
+				className="flex flex-col w-full gap-4 mx-auto mt-10 sm:w-2/3 lg:w-1/2 xl:w-1/4"
 			>
 				<label className="flex flex-col">
-					<span className="font-semibold text-base text-gray-700">
+					<span className="text-base font-semibold text-gray-700">
 						Title
 					</span>
 					<input
@@ -20,40 +20,54 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
 						onChange={(e) => {
 							setPost({ ...post, title: e.target.value });
 						}}
-                        placeholder="Title"
-                        required
+						placeholder="Title"
+						required
 						type="text"
 						className="form-input"
 					/>
 				</label>
 				<label className="flex flex-col">
-					<span className="font-semibold text-base text-gray-700">
+					<span className="text-base font-semibold text-gray-700">
 						Description
 					</span>
 					<textarea
-                        value={post.description}
+						value={post.description}
 						onChange={(e) => {
 							setPost({ ...post, description: e.target.value });
 						}}
-                        placeholder="Description"
-                        required
+						placeholder="Description"
+						required
 						type="text"
 						className="form-textarea"
 					/>
 				</label>
-                <div className='flex-row flex items-center justify-end gap-4'>
-                    <Link href='/posts' className='btn-ghost'>
-                        Cancel
-                    </Link>
+				{type === "Create" && (
+						<label className="flex flex-col">
+							<span className="text-base font-semibold text-gray-700">
+								Photo
+							</span>
+							<input
+								id="fileInput"
+								type="file"
+								onChange={(e) => {
+									setPhoto({ photo: e.target.value });
+								}}
+								placeholder="Photo"
+								required
+								className="form-input"
+							/>
+						</label>
+					)
+				}
+				<div className="flex flex-row items-center justify-end gap-4">
+					<Link href="/posts" className="btn-ghost">
+						Cancel
+					</Link>
 
-                    <button
-                        type='submit'
-                        disabled={submitting}
-                        className='btn'
-                    >
-                        {submitting ? `${type}ing...` : type}
-                    </button>
-                </div>
+					<button type="submit" disabled={submitting} className="btn">
+						{submitting ? `${type}ing...` : type}
+					</button>
+				</div>
 			</form>
 		</section>
 	);

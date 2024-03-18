@@ -59,8 +59,6 @@ const ItemCard = ({ post, handleEdit, handleDelete }) => {
 
 			if (response.ok) {
 				setFollowing(true);
-				console.log("following");
-				// router.push("/profile");
 			}
 		} catch (error) {
 			console.log(error);
@@ -80,8 +78,6 @@ const ItemCard = ({ post, handleEdit, handleDelete }) => {
 
 			if (response.ok) {
 				setFollowing(false);
-				console.log("unfollowed");
-				// router.push("/profile");
 			}
 		} catch (error) {
 			console.log(error);
@@ -93,8 +89,8 @@ const ItemCard = ({ post, handleEdit, handleDelete }) => {
 	return (
 		<div className="rounded-md shadow-lg">
 			<Image
-				src=""
-				alt=""
+				src={post.photo}
+				alt={post.title}
 				width={200}
 				height={200}
 				className="w-full h-auto aspect-square"

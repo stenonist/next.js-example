@@ -2,7 +2,7 @@ import { connectToDB } from "@utils/database";
 import Post from "@models/post";
 
 export const POST = async (req, res) => {
-	const { userId, title, description } = await req.json();
+	const { userId, title, description, photo } = await req.json();
 
 	try {
 		await connectToDB();
@@ -11,6 +11,7 @@ export const POST = async (req, res) => {
 			creator: userId,
 			title,
 			description,
+			photo
 		});
 
 		await newPost.save();
@@ -19,7 +20,6 @@ export const POST = async (req, res) => {
 			status: 201,
 		});
 	} catch (error) {
-        console.log(error);
 		return new Response("failed to create", { status: 500 });
 	}
 };
