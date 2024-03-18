@@ -117,11 +117,11 @@ const ItemCard = ({ post, handleEdit, handleDelete }) => {
 					<span className="blcok">{post.creator.username}</span>
 				</div>
 				<div>
-					{!following && (
+					{session?.user.id !== post.creator._id  && pathName !== "/profile" && !following && (
 						<button onClick={handleFollow} type="button">Follow</button>
 						)
 					}
-					{following && (
+					{session?.user.id !== post.creator._id && pathName !== "/profile"  && following && (
 						<button onClick={handleUnfollow} type="button">Unfollow</button>
 					)
 
