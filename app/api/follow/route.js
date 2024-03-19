@@ -1,5 +1,6 @@
 import User from "@models/user";
 import { connectToDB } from "@utils/database";
+import { NextResponse } from "next/server";
 
 export const POST = async (request,) => {
     const { userId, followId } = await request.json();
@@ -11,12 +12,12 @@ export const POST = async (request,) => {
 
         let following = followNew.following;
         if (following.includes(followId)) {
-            return new Response("Following", { status: 200 });
+            return NextResponse.json({ status: 200, following: true });
         }else{
-            return new Response("Not Following", { status: 400 });
+            return NextResponse.json({ status: 200, following: false });
         }
     } catch (error) {
-        return new Response("Internal Server Error", { status: 500 });
+        return NextResponse.json({ status: 500 });
     }
 }
 

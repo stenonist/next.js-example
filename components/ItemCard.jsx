@@ -13,7 +13,7 @@ const ItemCard = ({ post, handleEdit, handleDelete }) => {
 
 	const [following, setFollowing] = useState(false);
 
-	useEffect(() => {
+	setTimeout(() => {
 		const checkFollowing = async ()=>{
 			const response = await fetch(`/api/follow/`, {
 				method: "POST",
@@ -22,16 +22,17 @@ const ItemCard = ({ post, handleEdit, handleDelete }) => {
 					followId: post.creator._id
 				}),
 			});
-
-			if (response.status == 200) {
+			const result = await response.json();
+			
+			if (result.following === true) {
 				setFollowing(true);
 			}else{
 				setFollowing(false);
-
+				
 			}
 		}
 		checkFollowing();
-	}, [])
+	}, 100);
 	
 
 	// Isolate in a separate route to check if following
