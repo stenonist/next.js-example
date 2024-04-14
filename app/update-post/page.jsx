@@ -5,10 +5,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
 
-const EditPost = () => {
+const EditPost = async () => {
 	const router = useRouter();
 	const searchParams = useSearchParams();
-	const postId = searchParams.get("id");
+	const postId = await searchParams.get("id");
 
 	const [submitting, setIsSubmitting] = useState(false);
 	const [post, setPost] = useState({
