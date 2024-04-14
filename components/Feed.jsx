@@ -5,7 +5,7 @@ import ItemCard from "./ItemCard";
 
 const PostCardList = ({ data }) => {
 	return (
-		<div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+		<div className="grid grid-cols-1 gap-5 mt-16 sm:grid-cols-2 lg:grid-cols-4">
 			{data.map((post) => (
 				<ItemCard 
                     key={post._id}
@@ -21,7 +21,7 @@ const Feed = () => {
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const response = await fetch("/api/post");
+			const response = await fetch("/api/post", {next:{revalidate:10}});
 			const data = await response.json();
 
 			setPosts(data);
