@@ -29,7 +29,7 @@ const UserProfile = ({params}) => {
 
 	return (
         <>  
-            <Profile
+            <ProfileComp
                 name={user?.username}
                 description="your profile"
                 data={posts}

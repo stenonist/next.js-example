@@ -1,6 +1,6 @@
 import ItemCard from "./ItemCard";
 
-const Profile = ({ name, data, handleEdit, handleDelete }) => {
+const ProfileComp = ({ name, data, handleEdit, handleDelete }) => {
 	return (
 		<section className="flex flex-col w-full">
 			<h1>{name} Profile</h1>
@@ -22,4 +22,4 @@ const Profile = ({ name, data, handleEdit, handleDelete }) => {
 	);
 };
 
-export default Profile;
+export default ProfileComp;
