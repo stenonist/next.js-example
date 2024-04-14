@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Profile from "@components/ProfileComp";
 
-import Profile from "@components/profile";
+
 
 const UserProfile = ({params}) => {
     const userId = params.id;
