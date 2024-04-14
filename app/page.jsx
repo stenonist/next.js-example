@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import SignupButton from "@components/SignupButton";
 
 const Home = () => {
 	return (
@@ -61,9 +62,7 @@ const Home = () => {
 					<span className="text-5xl">Social media</span> the right
 					way...
 				</p>
-				<Link href="#" className="no-underline btn">
-					Sign up now
-				</Link>
+				<SignupButton type="signup" />
 			</div>
 		</section>
 	);

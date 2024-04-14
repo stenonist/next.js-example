@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import SignupButton from "./SignupButton";
 
 const Nav = () => {
 	const { data: session } = useSession();
@@ -62,21 +63,7 @@ const Nav = () => {
 						</Link>
 					</div>
 				) : (
-					<>
-						{providers &&
-							Object.values(providers).map((provider) => (
-								<button
-									type="button"
-									key={provider.name}
-									onClick={() => {
-										signIn(provider.id);
-									}}
-									className="btn-black"
-								>
-									Sign in
-								</button>
-							))}
-					</>
+					<SignupButton type="signin" />
 				)}
 			</div>
 
@@ -122,21 +109,22 @@ const Nav = () => {
 						)}
 					</div>
 				) : (
-					<>
-						{providers &&
-							Object.values(providers).map((provider) => (
-								<button
-									type="button"
-									key={provider.name}
-									onClick={() => {
-										signIn(provider.id);
-									}}
-									className="btn-black"
-								>
-									Sign in
-								</button>
-							))}
-					</>
+					<SignupButton type="signin" />
+					// <>
+					// 	{providers &&
+					// 		Object.values(providers).map((provider) => (
+					// 			<button
+					// 				type="button"
+					// 				key={provider.name}
+					// 				onClick={() => {
+					// 					signIn(provider.id);
+					// 				}}
+					// 				className="btn-black"
+					// 			>
+					// 				Sign in
+					// 			</button>
+					// 		))}
+					// </>
 				)}
 			</div>
 		</nav>
