@@ -14,7 +14,7 @@ export async function POST(req,res) {
     const uniqueName = nameArr[0] + "-" + Date.now() + "." + nameArr[1];
     const filename = uniqueName.replaceAll(" ", "_");
 
-    const path = join(env.NEXTAUTH_URL,"/public/upload/",filename);
+    const path = join(process.env.NEXTAUTH_URL,"/public/upload/",filename);
     const publicPath = `/upload/${filename}`
     await writeFile(path,buffer);
     
