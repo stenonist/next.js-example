@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 import Profile from "@components/ProfileComp";
 
-const MyProfile = () => {
+const Profile = () => {
 	const router = useRouter();
 	const { data: session } = useSession();
 
@@ -61,4 +61,4 @@ const MyProfile = () => {
 	);
 };
 
-export default MyProfile;
+export default Profile;
