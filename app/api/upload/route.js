@@ -1,3 +1,6 @@
+// This is an old version which does writing to local public directory
+
+
 import {NextResponse} from "next/server";
 import { writeFile } from "fs/promises";
 import { join } from "path";
@@ -24,4 +27,6 @@ export async function POST(req,res) {
     catch (e) {
         return  NextResponse.json({status:"fail",data:e})
     }
+
+    // NEED TO IMPLEMENT IMAGE STORING
 }

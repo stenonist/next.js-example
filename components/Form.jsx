@@ -1,6 +1,17 @@
+"use client"
 import Link from "next/link";
+import { FileUploader } from "./FileUploader";
 
-const Form = ({ type, post, setPost, photo, setPhoto, submitting, handleSubmit}) => {
+const Form = ({
+	type,
+	post,
+	setPost,
+	photo,
+	setPhoto,
+	submitting,
+	handleSubmit,
+}) => {
+	
 	return (
 		<section className="flex-col w-full">
 			<h1>
@@ -42,7 +53,8 @@ const Form = ({ type, post, setPost, photo, setPhoto, submitting, handleSubmit})
 					/>
 				</label>
 				{type === "Create" && (
-						<label className="flex flex-col">
+					<>
+						{/* <label className="flex flex-col">
 							<span className="text-base font-semibold text-gray-700">
 								Photo
 							</span>
@@ -56,9 +68,12 @@ const Form = ({ type, post, setPost, photo, setPhoto, submitting, handleSubmit})
 								required
 								className="form-input"
 							/>
-						</label>
-					)
-				}
+						</label> */}
+						<FileUploader 
+							setFiles={setPhoto}
+						/>
+					</>
+				)}
 				<div className="flex flex-row items-center justify-end gap-4">
 					<Link href="/posts" className="btn-ghost">
 						Cancel
