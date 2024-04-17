@@ -11,7 +11,6 @@ const Nav = () => {
 	const { data: session } = useSession();
 	const [toggleDropdown, setToggleDropdown] = useState(false);
 
-
 	return (
 		<nav className="flex flex-row justify-between w-full px-4 py-2 bg-gray-50">
 			<Link href="/" className="flex items-center gap-2">
@@ -23,12 +22,14 @@ const Nav = () => {
 					className="object-contain"
 				/>
 			</Link>
-			
 
 			{/* Desktop */}
 			<div className="hidden sm:flex">
 				{session?.user ? (
 					<div className="flex items-center gap-3 md:gap-5">
+						<Link href="/users" className="btn">
+							Members
+						</Link>
 						<Link href="/posts" className="btn">
 							Feed
 						</Link>

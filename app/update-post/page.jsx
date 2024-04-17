@@ -5,10 +5,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
 
-const EditPost = async () => {
+const EditPost = () => {
 	const router = useRouter();
 	const searchParams = useSearchParams();
-	const postId = await searchParams.get("id");
+	const postId = searchParams.get("id");
 
 	const [submitting, setIsSubmitting] = useState(false);
 	const [post, setPost] = useState({
@@ -34,16 +34,16 @@ const EditPost = async () => {
 		e.preventDefault();
 		setIsSubmitting(true);
 
-        if (!postId) {
-            return alert("no ID")
-        }
+		if (!postId) {
+			return alert("no ID");
+		}
 
 		try {
 			const response = await fetch(`/api/post/${postId}`, {
 				method: "PATCH",
 				body: JSON.stringify({
 					title: post.title,
-					description: post.description
+					description: post.description,
 				}),
 			});
 
